@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   so_long.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rnait-el <rnait-el@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/09 08:14:47 by rnait-el          #+#    #+#             */
+/*   Updated: 2023/03/09 08:15:23 by rnait-el         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
@@ -12,8 +24,7 @@
 # define ESC	53
 # define SIZE   48
 
-# include "../minilibx/mlx.h"
-
+# include <mlx.h>
 # include <fcntl.h>
 # include <unistd.h>
 # include <stdlib.h>

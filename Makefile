@@ -1,36 +1,23 @@
-NAME = mainfiles
+NAME = so_long
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror
 
-Y = "\033[33m"
-R = "\033[31m"
-G = "\033[32m"
-B = "\033[34m"
-X = "\033[0m"
-UP = "\033[A"
-CUT = "\033[K"
+LIBS = -Imlx -lmlx -framework OpenGL -framework Appkit 
 
-CFILES = $(shell find . -name "*.c")
+CFILES = control.c image.c main.c map.c move.c windows.c utils.c get_next_line.c 
 
 OBJECTS = $(CFILES:.c=.o)
 
 %.o : %.c
-	@$(CC) $(CFLAGS) -c -o $@ $<
-	@printf $(UP)$(CUT)
-	@echo $(Y)Compiling [$<]...$(X)
+	@$(CC) $(CFLAGS) -Imlx -c $< -o  $@
 
 all: $(NAME)
 
 $(NAME): $(OBJECTS)
-	@printf $(UP)$(CUT)
-	@echo $(Y)Compiling [$(NAME)]...$(X)
-	@ar -rcs $(NAME) $(OBJECTS)
-	@ranlib $(NAME)
-	@echo $(G)Finished [$(NAME)]$(X)
-	@echo
-
+	$(CC) $(OBJECTS) $(LIBS) -o $@
+	
 clean:
 	@rm -f $(OBJECTS)
 	@echo $(R)Removed [$(OBJECTS)]$(X)
